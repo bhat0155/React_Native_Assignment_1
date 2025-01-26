@@ -12,6 +12,8 @@
 - For refresh control feature, as soon as spinner loads, I deleted the existing data in the local storage, made a new fetch call
 and stored new data in the storage.
 - This would also update the state variable of different beers.
+- To Implement refresh, I imported the component from react native, set refreshing (a state variable) to false initially.
+- The spinner starts refreshing when the list is dragged and stops the refresh as soon as new data is fetched.
 
 ## In Detail Page
 - Get all the items from the storage in an array.
