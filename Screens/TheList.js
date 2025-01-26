@@ -18,11 +18,9 @@ const TheList = () => {
   async function loadList() {
     const dataInStorage = await getDataFromStorage(SecretKey);
     if (dataInStorage) {
-      console.log("Data is in STorage");
       setData(dataInStorage);
     } else {
-      console.log("There is no data in storage");
-      // nav.navigate("/");
+      nav.navigate("Home");
     }
   }
 

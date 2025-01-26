@@ -2,7 +2,6 @@ import { View, Text } from "react-native";
 import React, { useEffect } from "react";
 import { SecretKey } from "../utils/constants";
 import { fetchURL } from "../utils/constants";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { saveDataToStorage } from "../utils/utilityFunctions";
 import { getDataFromStorage } from "../utils/utilityFunctions";
 
@@ -11,7 +10,7 @@ const HomeScreen = () => {
 
   async function saveToStorage() {
     try {
-      const JsonValue = getDataFromStorage(SecretKey);
+      const JsonValue = await getDataFromStorage(SecretKey);
       if (JsonValue) {
         console.log("data already exist in the local storage");
       } else {

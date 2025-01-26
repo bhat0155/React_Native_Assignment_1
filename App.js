@@ -11,14 +11,11 @@ import DetailPage from "./Screens/DetailPage";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-function listStackNavigator() {
+function ListStackNavigator() {
   return (
-    <Stack.Navigator screenOptions={{headerShown: true}}>
-      <Stack.Screen name="TheList" component={TheList} ></Stack.Screen>
-      <Stack.Screen
-        name="DetailPage"
-        component={DetailPage}
-      ></Stack.Screen>
+    <Stack.Navigator screenOptions={{ headerShown: true }}>
+      <Stack.Screen name="TheList" component={TheList}></Stack.Screen>
+      <Stack.Screen name="DetailPage" component={DetailPage}></Stack.Screen>
     </Stack.Navigator>
   );
 }
@@ -26,7 +23,10 @@ function listStackNavigator() {
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{headerShown: false}} initialRouteName="Home" >
+      <Tab.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="Home"
+      >
         <Tab.Screen
           name="Home"
           component={HomeScreen}
@@ -47,7 +47,7 @@ export default function App() {
         ></Tab.Screen>
         <Tab.Screen
           name="List"
-          component={listStackNavigator}
+          component={ListStackNavigator}
           options={{
             title: "List",
 

@@ -4,14 +4,14 @@ import { useNavigation } from "@react-navigation/native";
 
 export default function ListItem({ props }) {
   const { name, alcohol, id } = props;
-  const nav=useNavigation()
+  const nav = useNavigation();
 
-  function goTo(page){
-    nav.navigate(page, {props: id})
+  function goTo(page) {
+    nav.navigate(page, { props: id });
   }
   return (
     <View>
-      <Pressable onPress={()=>goTo("DetailPage")}>
+      <Pressable onPress={() => goTo("DetailPage")}>
         <Text>
           {name} - {alcohol}
         </Text>
