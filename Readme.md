@@ -10,3 +10,5 @@ I checked if data exists in the local storage, if no, fetch the data and save it
 - I checked if data in persistent storage exist. If yes, store value in state variable. If no, redirect to HomePage.
 - Display the list on Screen, make each Item Pressable and pass uid as a prop
 
+
+- Write now Im trying to find particular product from List in Detail Page.
