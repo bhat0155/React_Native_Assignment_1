@@ -27,15 +27,10 @@ const TheList = () => {
     loadList();
   }, []);
 
-  function goTo(page) {
-    nav.navigate(page);
-  }
   return (
     <View>
       <Text>TheList</Text>
-      <Button name="detail" onPressIn={() => goTo("DetailPage")}>
-        Detail
-      </Button>
+
       <FlatList
         data={data}
         renderItem={({ item }) => {
