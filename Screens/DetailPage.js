@@ -18,7 +18,7 @@ const DetailPage = ({ route }) => {
       console.log(theDrink);
       setBeer(theDrink);
     } else {
-      console.log("nothing in storage");
+      console.log(" nothing in storage");
     }
   }
 
