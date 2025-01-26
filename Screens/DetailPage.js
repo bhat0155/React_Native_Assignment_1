@@ -1,22 +1,19 @@
 import { View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SecretKey } from "../utils/constants";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getDataFromStorage } from "../utils/utilityFunctions";
 
 const DetailPage = ({ route }) => {
   const id = route.params?.props;
   const [beer, setBeer] = useState([]);
 
   async function loadList() {
-    const dataInStorage = await AsyncStorage.getItem(SecretKey);
+    const dataInStorage = await getDataFromStorage(SecretKey);
     if (dataInStorage) {
-      const parsedData = JSON.parse(dataInStorage);
-
-      const theDrink = parsedData.find((item) => item.id == id);
-
+      const theDrink = dataInStorage.find((item) => item.id == id);
       setBeer(theDrink);
     } else {
-      console.log("nothing in storage");
+      console.log("There is nothing in local storage");
     }
   }
 
