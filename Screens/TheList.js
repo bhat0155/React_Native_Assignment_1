@@ -7,8 +7,7 @@ import ListItem from "../Components/ListItem";
 import { fetchURL } from "../utils/constants";
 import { saveDataToStorage } from "../utils/utilityFunctions";
 import { getDataFromStorage } from "../utils/utilityFunctions";
-
-// check if data in persistent storage exist. If yes, store value in state variable. If no, redirect to HomePage
+import styles from "../styles/style";
 
 const TheList = () => {
   const [data, setData] = useState([]);
@@ -41,10 +40,10 @@ const TheList = () => {
   }, []);
 
   return (
-    <View>
-      <Text>TheList</Text>
-
+    <View style={styles.container}>
       <FlatList
+        style={styles.listContainer}
+        contentContainerStyle={styles.listContent}
         refreshControl={
           <RefreshControl
             refreshing={refreshing}
