@@ -50,7 +50,7 @@ export default function App() {
           name="List"
           component={ListStackNavigator}
           options={{
-            title: "remove",
+            title: "List",
 
             tabBarIcon: ({ focused, color, size }) => {
               return (
