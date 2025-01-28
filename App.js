@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 function ListStackNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: true }}>
-      <Stack.Screen name="TheList" component={TheList}></Stack.Screen>
+      <Stack.Screen name="List" component={TheList}></Stack.Screen>
       <Stack.Screen name="DetailPage" component={DetailPage}></Stack.Screen>
     </Stack.Navigator>
   );
@@ -29,10 +29,11 @@ export default function App() {
       >
         <Tab.Screen
           name="Home"
+          headerShown={true}
           component={HomeScreen}
           options={{
             title: "Home",
-
+            headerShown: true,
             tabBarIcon: ({ focused, color, size }) => {
               return (
                 <MaterialIcons
@@ -49,7 +50,7 @@ export default function App() {
           name="List"
           component={ListStackNavigator}
           options={{
-            title: "List",
+            title: "remove",
 
             tabBarIcon: ({ focused, color, size }) => {
               return (

@@ -2,6 +2,7 @@ import { View, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SecretKey } from "../utils/constants";
 import { getDataFromStorage } from "../utils/utilityFunctions";
+import styles from "../styles/style";
 
 const DetailPage = ({ route }) => {
   const id = route.params?.props;
@@ -22,14 +23,17 @@ const DetailPage = ({ route }) => {
   }, []);
 
   return (
-    <View>
-      <Text>The id is -{beer.id}</Text>
-      <Text>The name is -{beer.name}</Text>
-      <Text>The brand is -{beer.brand}</Text>
-      <Text>The style is -{beer.style}</Text>
-      <Text>The hop is -{beer.hop}</Text>
-      <Text>The malt is -{beer.malts}</Text>
-      <Text>The alcohol % is -{beer.alcohol}</Text>
+    <View style={styles.detailContainer}>
+      <View style={styles.innerContainer}>
+        <Text style={styles.beerName}>{beer.name}</Text>
+        <Text style={styles.property}>Brand - {beer.brand}</Text>
+        <Text style={styles.property}>Style -{beer.style}</Text>
+        <Text style={styles.property}>Hop - {beer.hop}</Text>
+        <Text style={styles.property}>Malt - {beer.malts}</Text>
+        <Text style={styles.property}>Alcohol % - {beer.alcohol}</Text>
+        <Text style={styles.property}>Yeast - {beer.yeast}</Text>
+        <Text style={styles.property}>ID - {beer.id}</Text>
+      </View>
     </View>
   );
 };
