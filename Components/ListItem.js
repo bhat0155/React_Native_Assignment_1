@@ -13,13 +13,9 @@ export default function ListItem({ props }) {
   return (
     <View style={styles.item}>
       <Pressable onPress={() => goTo("DetailPage")}>
-        <Text style={styles.itemText}>
-          {name} 
-        </Text>
-        <Text style={styles.subText}>
-        {alcohol}
-        </Text>
-      </Pressable>
+        <Text style={styles.itemText}>{name}</Text>
+        <Text style={styles.subText}>{alcohol}</Text>
+      </Pressable> 
     </View>
   );
 }

@@ -92,6 +92,20 @@ const styles = StyleSheet.create({
   errorText: {
     fontWeight: "bold",
   },
+  clearBtn: {
+    backgroundColor: "#333",
+    padding: 10,
+    marginVertical: 10,
+    borderRadius: 8,
+  },
+  clearBtnText: {
+    color: "white",
+  },
+  beerCount: {
+    fontWeight: "bold",
+    marginTop: 40,
+    marginBottom: 10,
+  },
 });
 
 export default styles;

@@ -18,3 +18,10 @@ and stored new data in the storage.
 ## In Detail Page
 - Get all the items from the storage in an array.
 - From id which I got as a prop from list page, I found the particular drink from the given array and displayed the details on detail page.
+
+
+## new updates
+- Used useFocusEffect instead of useEffect so that fetch rendering happens when the tab changes.
+- added a clear data button when cleared persistant storage.
+- When we move to list tab, I checked if data is present in persistant storage? If yes, display data. If not
+ (case when we clear data), make a new fetch and display the new data.

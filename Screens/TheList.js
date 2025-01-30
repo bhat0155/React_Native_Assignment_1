@@ -1,6 +1,6 @@
 import { View, Text, FlatList, RefreshControl } from "react-native";
 import React, { useCallback, useEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SecretKey } from "../utils/constants";
 import ListItem from "../Components/ListItem";
@@ -18,12 +18,20 @@ const TheList = () => {
   const nav = useNavigation();
 
   async function loadList() {
-    const dataInStorage = await getDataFromStorage(SecretKey);
-    if (dataInStorage) {
-      setData(dataInStorage);
-      setError(false);
-    } else {
-      nav.navigate("Home");
+    try {
+      const dataInStorage = await getDataFromStorage(SecretKey);
+
+      if (dataInStorage && dataInStorage.length > 0) {
+        console.log("Loading data from storage");
+        setData(dataInStorage);
+      } else {
+        console.log("Storage is empty - Fetching new data");
+        const newData = await saveDataToStorage(SecretKey, fetchURL);
+        setData(newData);
+      }
+    } catch (err) {
+      console.log("Error fetching data in list page", err);
+      setError(true);
     }
   }
 
@@ -47,9 +55,11 @@ const TheList = () => {
     }
   });
 
-  useEffect(() => {
-    loadList();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      loadList();
+    }, [])
+  );
 
   return (
     <View style={styles.container}>
